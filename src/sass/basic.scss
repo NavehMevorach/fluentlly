@@ -1,0 +1,27 @@
+:root {
+    --background: #fafafa;
+    --text: #33363c;
+    --logo-color-opacity: 0.4;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+
+  ::selection{
+    background: var(--text);
+    color: var(--background);
+  }
+
+  
+  
+  body {
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: 'Karla', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 2rem;
+    transition: background 0.2s ease;
+  }
