@@ -46,6 +46,9 @@
         fill: var(--text);
       }
     }
+    svg.animated {
+      animation: rotateSvg 1s forwards infinite;
+    }
   }
 }
 
@@ -60,27 +63,72 @@
   z-index: 10;
   padding: 3rem 0;
 
+  & .cup-of-coffee {
+    position: relative;
+    &::before {
+      // content: 'Buy me Cup of Coffee';
+      position: absolute;
+      bottom: -2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200%;
+      height: 2rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: var(--background);
+      background: var(--text);
+      border-radius: 10px;
+      font-weight: bold;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &:hover svg path{
+      stroke: var(--text);
+
+    }
+    &:hover::before {
+      content: 'Buy me Cup of Coffee';
+    }
+  }
+
   &__button {
     font-size: 16px;
     border: 0px;
     width: 48px;
-    padding: 24px 15px 0px 15px;
+    padding: 2.4rem 1rem 0px 1rem;
     margin: 0;
     cursor: pointer;
     outline: 0;
-    transition: 0.2s ease;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     svg path {
       stroke: var(--text);
+      transition: 0.2s ease;
     }
-    &:hover svg path {
-      stroke: #94ffef;
+    &#resume svg path {
+      fill: var(--text);
+      stroke: transparent;
+    }
+    &#resume:hover svg path {
+      stroke: #8686FE;
+      fill: transparent;
+    }
+    svg rect {
+      transition: 0.2s ease;
+      fill: var(--text);
+    }
+    &:hover svg path,
+    &:hover svg rect {
+      stroke: #8686FE;
       fill: transparent;
     }
   }
 }
 
-.right-sidebar{
+.right-sidebar {
   min-height: 500px;
   width: 25rem;
   right: 6rem;
@@ -88,10 +136,10 @@
   position: fixed;
   z-index: 10;
   padding: 3rem 0;
-  &__title{
+  &__title {
     margin-bottom: 3rem;
   }
-  &__item{
+  &__item {
     margin-bottom: 3rem;
   }
 }
@@ -222,5 +270,14 @@
     border-radius: 50%;
     width: 150%;
     transform: translate(-5%, -35%) rotate(-25deg);
+  }
+}
+
+@keyframes rotateSvg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

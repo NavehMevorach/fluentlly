@@ -10,13 +10,10 @@ const Sidebar = ({ children }) => {
          <button className='sidebar__button'>
             <Translate />
          </button>
-         {/* <button className='sidebar__button'>
-            <Sound />
-         </button> */}
          {children}
-         <button className='sidebar__button'>
+         <a href='https://www.paypal.me/cupofcoffe' target="_blank" rel="noopener noreferrer" className='sidebar__button cup-of-coffee'>
             <Donate />
-         </button>
+         </a>
       </div>
    )
 }
